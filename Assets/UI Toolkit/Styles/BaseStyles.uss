@@ -1,0 +1,146 @@
+:root {
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    translate: 0 100px;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+.top-bar {
+    flex-grow: 0;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+.score-value {
+    -unity-font-definition: url("project://database/Assets/Fonts/Orbitron/static/Orbitron-Regular.ttf?fileID=12800000&guid=2571cbe133f3b4299804b2cabe4f1ad1&type=3#Orbitron-Regular");
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.score-label {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    -unity-font-definition: url("project://database/Assets/Fonts/Orbitron/static/Orbitron-Bold.ttf?fileID=12800000&guid=27657c6fecdbd4a1784dd45fa544eb1d&type=3#Orbitron-Bold");
+}
+
+.lives-icon {
+    flex-grow: 0;
+    width: 45px;
+    background-image: url("project://database/Assets/Textures/Sprites/ship.png?fileID=21300000&guid=11bc40779afdd4199abc79d4cbec5976&type=3#ship");
+    -unity-background-scale-mode: scale-to-fit;
+    margin-right: 5px;
+}
+
+.game-over-background {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.81);
+    align-items: center;
+    justify-content: center;
+}
+
+.game-over-label {
+    color: rgb(229, 154, 49);
+    -unity-font-definition: url("project://database/Assets/Fonts/Orbitron/static/Orbitron-ExtraBold%20SDF.asset?fileID=11400000&guid=f96e3d56ad1ff4e7d93990bb66b003f8&type=2#Orbitron-ExtraBold SDF");
+    font-size: 60px;
+    -unity-text-outline-color: rgb(255, 127, 11);
+    -unity-text-outline-width: 2px;
+}
+
+.game-over-center {
+    flex-grow: 0;
+    width: 500px;
+    height: 450px;
+    align-items: center;
+}
+
+.button {
+    flex-grow: 0;
+    background-color: rgb(113, 212, 238);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left-color: rgb(89, 156, 173);
+    border-right-color: rgb(89, 156, 173);
+    border-top-color: rgb(89, 156, 173);
+    border-bottom-color: rgb(89, 156, 173);
+    width: 230px;
+    height: 45px;
+    transition-property: scale;
+    transition-duration: 0.35s;
+}
+
+.button-label {
+    -unity-font-definition: url("project://database/Assets/Fonts/Orbitron/static/Orbitron-Bold%20SDF.asset?fileID=11400000&guid=08040bdbab2ef430795ed95bb014abb2&type=2#Orbitron-Bold SDF");
+    -unity-text-align: upper-center;
+    flex-grow: 1;
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.button-label {
+    -unity-font-definition: url("project://database/Assets/Fonts/Orbitron/static/Orbitron-Bold%20SDF.asset?fileID=11400000&guid=08040bdbab2ef430795ed95bb014abb2&type=2#Orbitron-Bold SDF");
+    -unity-text-align: upper-center;
+    flex-grow: 1;
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.button:hover {
+    border-left-color: rgb(253, 232, 1);
+    border-right-color: rgb(253, 232, 1);
+    border-top-color: rgb(253, 232, 1);
+    border-bottom-color: rgb(253, 232, 1);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    scale: 1.05 1.05;
+}
+
+.button:hover .button-label {
+    color: rgb(253, 232, 1);
+}
+
+.button:active {
+    border-left-color: rgb(253, 248, 194);
+    border-right-color: rgb(253, 248, 194);
+    border-top-color: rgb(253, 248, 194);
+    border-bottom-color: rgb(253, 248, 194);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    scale: 1.05 1.05;
+}

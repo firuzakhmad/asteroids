@@ -1,0 +1,32 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/BaseStyles.uss?fileID=7433441132597879392&amp;guid=b57670f3410464496ada94b522676c9b&amp;type=3#BaseStyles"/>
+    <ui:VisualElement name="Container" class="container">
+        <ui:VisualElement name="TopBar" class="top-bar" style="flex-direction: row; padding-top: 5px; padding-right: 25px; padding-bottom: 5px; padding-left: 25px;">
+            <ui:Label text="Score:" name="ScoreLabel" class="score-label"/>
+            <ui:Label text="000" name="ScoreValue" data-source-path="" data-source-type="ScoreManager, Assembly-CSharp" class="score-value">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="m_score" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+            <ui:VisualElement name="Spacer" style="flex-grow: 1;"/>
+            <ui:VisualElement name="LivesIcon" class="lives-icon"/>
+            <ui:Label text="0&#10;" name="LivesValue" data-source-path="" data-source-type="ScoreManager, Assembly-CSharp" class="score-value">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="m_currentLives" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement name="GameOver" class="game-over-background hidden" style="transition-duration: 0.35s; opacity: 1;">
+            <ui:VisualElement name="CenterPanel" class="game-over-center">
+                <ui:Label text="Game OVer" name="GameOverLabel" class="game-over-label"/>
+                <ui:VisualElement name="Spacer" style="flex-grow: 1;"/>
+                <ui:VisualElement name="RetryButton" class="button" style="background-color: rgb(253, 133, 1); border-left-color: rgb(118, 68, 33); border-right-color: rgb(118, 68, 33); border-top-color: rgb(118, 68, 33); border-bottom-color: rgb(118, 68, 33); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
+                    <ui:Label text="Retry" name="ButtonLabel" class="button-label"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="QuitButton" class="button" style="background-color: rgb(253, 133, 1); border-left-color: rgb(118, 68, 33); border-right-color: rgb(118, 68, 33); border-top-color: rgb(118, 68, 33); border-bottom-color: rgb(118, 68, 33); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
+                    <ui:Label text="Exit" name="ButtonLabel" class="button-label"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

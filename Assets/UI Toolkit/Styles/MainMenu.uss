@@ -1,0 +1,7 @@
+:root {
+}
+
+.background {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/Textures/Sprites/Space_Background.png?fileID=2800000&guid=82c2acba089f942c383cc314f41d770e&type=3#Space_Background");
+}

@@ -227,6 +227,8 @@ MonoBehaviour:
     width: 133
     height: 90
   m_health: 3
+  m_maxHealth: 1
   m_size: 1
   m_forcePower: 5
-  m_angularPower: 180
+  m_constantPower: 3
+  m_angularPower: 90

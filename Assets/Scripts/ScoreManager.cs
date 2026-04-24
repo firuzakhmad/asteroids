@@ -26,12 +26,14 @@ public class ScoreManager : MonoBehaviour
     {
         GameEvents.Instance.onAddToScore += AddScore;
         GameEvents.Instance.onPlayerDie += OnPlayerDie;
+        GameEvents.Instance.onRetryEvent += OnRetry;
     }
 
     private void OnDisable()
     {
         GameEvents.Instance.onAddToScore -= AddScore;
         GameEvents.Instance.onPlayerDie -= OnPlayerDie;
+        GameEvents.Instance.onRetryEvent -= OnRetry;
 
     }
 
@@ -61,5 +63,11 @@ public class ScoreManager : MonoBehaviour
     {
         m_score = 0;
         m_currentLives = m_maxLives;
+    }
+
+    private void OnRetry()
+    {
+        Time.timeScale = 1;
+        ClearScore();
     }
 }

@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=99ea8198c473346969ec626b1729e1d3&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="Background" class="background">
+        <ui:VisualElement name="MenuContainer" style="flex-grow: 1; width: 450px; height: 20px; align-items: center; max-width: 450px; max-height: 200px; justify-content: space-between; align-self: center; align-content: center; top: 10%; background-image: url(&quot;project://database/Assets/Textures/Sprites/Menu/Logo.png?fileID=2800000&amp;guid=1e99fc0e65d8d437bb1464ae80761bb0&amp;type=3#Logo&quot;);"/>
+        <ui:VisualElement name="Logo" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Textures/Sprites/Menu/ship_blur.png?fileID=2800000&amp;guid=c30568635b0294716a81b6017a9addc8&amp;type=3#ship_blur&quot;); width: 150px; height: 150px; max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; align-items: auto; position: absolute; top: auto; left: auto; right: 100px; bottom: 100px;"/>
+        <ui:VisualElement name="PlayButton" class="button play-button" style="background-color: rgb(253, 133, 1); border-left-color: rgb(118, 68, 33); border-right-color: rgb(118, 68, 33); border-top-color: rgb(118, 68, 33); border-bottom-color: rgb(118, 68, 33); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; width: 230px; align-items: center; justify-content: space-between; align-self: center; align-content: center; bottom: auto; top: 20%;">
+            <ui:Label text="Play" name="ButtonLabel" class="button-label"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="QuitButton" class="button" style="background-color: rgb(253, 133, 1); border-left-color: rgb(118, 68, 33); border-right-color: rgb(118, 68, 33); border-top-color: rgb(118, 68, 33); border-bottom-color: rgb(118, 68, 33); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; width: 230px; top: 20%; justify-content: space-between; align-items: center; align-self: center; align-content: center;">
+            <ui:Label text="Exit" name="ButtonLabel" class="button-label"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

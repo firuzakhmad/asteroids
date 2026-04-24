@@ -8,6 +8,10 @@ public class AsteroidController : BoundedEntity
 
     [SerializeField]
     private float m_forcePower;
+
+    [SerializeField]
+    private float m_constantPower;
+
     [SerializeField]
     private float m_angularPower;
 
@@ -17,10 +21,14 @@ public class AsteroidController : BoundedEntity
   
     private void Start()
     {
-        m_rigidbody.AddForce(
-            UnityEngine.Random.insideUnitCircle * m_rigidbody.mass * m_forcePower, 
-            ForceMode2D.Impulse
-        );
+        // Pick a random direction
+        Vector2 direction = UnityEngine.Random.insideUnitCircle.normalized;
+
+        // Set velocity directly (no AddForce)
+        float speed = m_forcePower; // reuse your variable as "speed"
+        m_rigidbody.linearVelocity = direction * speed;
+
+        // Add some spin
         m_rigidbody.angularVelocity = UnityEngine.Random.Range(-m_angularPower, m_angularPower);
     }
 

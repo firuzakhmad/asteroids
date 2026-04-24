@@ -52,7 +52,7 @@ public class HUB : MonoBehaviour
     private void HandleRetryEvent()
     {
         GameEvents.Instance.OnRetry();
-        m_gameOverScreen.RemoveFromClassList("hidden");
+        m_gameOverScreen.AddToClassList("hidden");
 
     }
 

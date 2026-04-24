@@ -24,11 +24,27 @@ public class AsteroidManager : MonoBehaviour
     private List<GameObject> m_asteroidsPrefabs;
 
     [SerializeField]
+    private GameObject m_collectiblePrefab;
+
+    [SerializeField]
     private int[] m_numToSpawnOnDeath;
+
+    private void OnEnable()
+    {
+        GameEvents.Instance.onRetryEvent += OnRetry;
+        GameEvents.Instance.onGameOver += OnGameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.Instance.onRetryEvent -= OnRetry;
+        GameEvents.Instance.onGameOver -= OnGameOver;
+
+    }
 
     void Start()
     {
-        StartCoroutine(SpawnInitialAsteroids());
+        OnRetry();
     }
 
     private IEnumerator SpawnInitialAsteroids()
@@ -57,11 +73,37 @@ public class AsteroidManager : MonoBehaviour
 
     private Vector2 GetSpawnPointRandom()
     {
-        Vector2 spawnPoint = new Vector2(
-            UnityEngine.Random.Range(m_spawnArea.xMin, m_spawnArea.xMax),
-            UnityEngine.Random.Range(m_spawnArea.yMin, m_spawnArea.yMax)
-        );
-        return spawnPoint;
+        int side = Random.Range(0, 4);
+
+        float x = 0, y = 0;
+        switch (side)
+        {
+            // TOP
+            case 0:
+                x = Random.Range(m_spawnArea.xMin, m_spawnArea.xMax);
+                y = m_spawnArea.yMax;
+                break;
+            // RIGHT
+            case 1:
+                x = m_spawnArea.xMax;
+                y = Random.Range(m_spawnArea.yMin, m_spawnArea.yMax);
+                break;
+            // BOTTOM
+            case 2:
+                x = Random.Range(m_spawnArea.xMin, m_spawnArea.xMax);
+                y = m_spawnArea.yMin;
+                break;
+            // Left
+            case 3:
+                x = m_spawnArea.xMin;
+                y = Random.Range(m_spawnArea.yMin, m_spawnArea.yMax);
+                break;
+            
+            default:
+                break;
+        }
+
+        return new Vector2(x, y);
     }
 
     private void SpawnRandomAsteroid(int size, Vector2 spawnPoint)
@@ -105,12 +147,40 @@ public class AsteroidManager : MonoBehaviour
 
         if (size > 0)
         {
+            SpawnCollectible(asteroidPoint);
+
             for (int i = 0; i < numToSpawn; i++)
             {
                 SpawnRandomAsteroid(size, (UnityEngine.Random.insideUnitCircle * 5f) + asteroidPoint);
             }
         }
     }
+
+    private void SpawnCollectible(Vector3 position)
+    {
+        if (Random.Range(0.0f, 1.0f) > 0.5f)
+        {
+            GameObject collectible = Instantiate(m_collectiblePrefab, transform);
+            collectible.transform.position = position;
+        }
+    }
+
+    private void OnGameOver()
+    {
+        StopAllCoroutines();
+        m_currentAsteroidCount = 0;
+    }
+
+    private void OnRetry()
+    {
+        foreach (Transform t in transform)
+        {
+            Destroy(t.gameObject);
+        }
+
+        StartCoroutine(SpawnInitialAsteroids());
+    }
+
 
     void OnDrawGizmos()
     {
@@ -130,4 +200,6 @@ public class AsteroidManager : MonoBehaviour
 
         Gizmos.DrawWireCube(center, size);
     }
+
+    
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class ShipController : BoundedEntity
 {
@@ -24,6 +25,9 @@ public class ShipController : BoundedEntity
 
     [SerializeField]
     private GameObject m_bulletPrefab;
+
+    [SerializeField]
+    private GameObject m_deathVFXPrefab;
     
     [SerializeField]
     private float m_fireDelay;
@@ -39,6 +43,12 @@ public class ShipController : BoundedEntity
 
     [SerializeField]
     private GameObject m_shield;
+
+    [SerializeField]
+    private VisualEffect m_leftThrust;
+
+    [SerializeField]
+    private VisualEffect m_rightThrust;
 
     [SerializeField]
     private bool m_isDead;
@@ -69,6 +79,22 @@ public class ShipController : BoundedEntity
 
         m_turnInput = moveInputDirection.x;
         m_forwardInput = moveInputDirection.y;
+
+        if (m_forwardInput > 0)
+        {
+            EnableThrusters(true, true);
+        }
+        else
+        {
+            EnableThrusters(false, false);
+        }
+
+    }
+
+    void EnableThrusters(bool left, bool right)
+    {
+        m_leftThrust.enabled = left;
+        m_rightThrust.enabled = right;
     }
 
     void OnAttack(InputValue value)
@@ -205,6 +231,8 @@ public class ShipController : BoundedEntity
     protected override void OnDie()
     {
         GameEvents.Instance.OnPlayerDie();
+
+        SpawnVFX(m_deathVFXPrefab);
 
         m_deathSound.Play();
 

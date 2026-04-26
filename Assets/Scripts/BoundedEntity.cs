@@ -78,6 +78,12 @@ public class BoundedEntity : MonoBehaviour
         m_health = m_maxHealth;
     }
 
+    protected void SpawnVFX(GameObject vfxPrefab)
+    {
+        GameObject vfx = GameObject.Instantiate(vfxPrefab);
+        vfx.transform.position = transform.position;
+    }
+
     protected virtual void OnDie()
     {
         
